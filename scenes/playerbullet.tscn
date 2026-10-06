@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://beyojug0v7xod"]
 
-[ext_resource type="Script" uid="uid://b3a1p06lnj25s" path="res://playerbullet.gd" id="1_vh4ht"]
+[ext_resource type="Script" uid="uid://cq40f764pwh4q" path="res://scripts/playerbullet.gd" id="1_7fy7u"]
 [ext_resource type="Texture2D" uid="uid://bkkkseou7g3sy" path="res://assets/laser-bolts.png" id="1_xdbpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1026"]
@@ -8,7 +8,7 @@ size = Vector2(5.2, 5.0000005)
 
 [node name="PlayerBullet" type="Area2D" unique_id=70062180]
 scale = Vector2(5, 5)
-script = ExtResource("1_vh4ht")
+script = ExtResource("1_7fy7u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073814353]
 position = Vector2(-0.40000004, 0.8999997)

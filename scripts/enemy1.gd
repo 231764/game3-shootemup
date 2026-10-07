@@ -6,12 +6,15 @@ extends Area2D
 @export var ram_damage := 1       # damage the enemy takes when it hits the player
 @export var explosion_scene: PackedScene
 @onready var animation = $Sprite2D
+@onready var health_bar: ProgressBar = $HealthBar
 
 var health: int
 var dead := false
 
 func _ready() -> void:
 	health = max_health
+	health_bar.max_value = max_health
+	health_bar.value = health
 	add_to_group("enemy")
 	animation.play("default")
 	area_entered.connect(_on_area_entered)
@@ -45,6 +48,7 @@ func take_damage(amount: int) -> void:
 	if dead:
 		return
 	health -= amount
+	health_bar.value = max(health, 0)
 	if health <= 0:
 		dead = true
 		_explode(global_position, true)   # big explosion on destroy

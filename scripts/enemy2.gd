@@ -11,6 +11,7 @@ extends Area2D
 @export var bullet_scene: PackedScene
 @export var explosion_scene: PackedScene
 @onready var animation = $Sprite2D
+@onready var health_bar: ProgressBar = $HealthBar
 
 var health: int
 var dead := false
@@ -22,6 +23,8 @@ var _shoot_timer: Timer
 func _ready() -> void:
 	animation.play("default")
 	health = max_health
+	health_bar.max_value = max_health
+	health_bar.value = health
 	add_to_group("enemy")
 	_center_x = clamp(position.x, sway_amplitude, get_viewport_rect().size.x - sway_amplitude)
 	area_entered.connect(_on_area_entered)
@@ -75,6 +78,7 @@ func take_damage(amount: int) -> void:
 	if dead:
 		return
 	health -= amount
+	health_bar.value = max(health, 0)
 	if health <= 0:
 		dead = true
 		_explode(global_position, true)

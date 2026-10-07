@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died
+
 var speed = 350
 var turn_left = false
 var turn_right = false
@@ -82,6 +84,8 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	if dead:
+		return
 	dead = true
 	velocity = Vector2.ZERO
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -94,3 +98,4 @@ func die() -> void:
 			e.global_position = global_position
 			get_tree().current_scene.add_child(e)
 		animation.hide()
+	died.emit()

@@ -45,7 +45,7 @@ func _create_stars() -> void:
 		var depth := _rng.randf()
 		var width := 2.0 if depth < 0.6 else (4.0 if depth < 0.9 else 6.0)
 		var length := width if depth < 0.9 else width * (1.0 + _rng.randf())
-		var color := WARM_STAR if _rng.randf() < 0.1 else COOL_STAR
+		var color := WARM_STAR if _rng.randf() < 0.3 else COOL_STAR
 		color.a = lerpf(0.35, 0.9, depth)
 		_stars.append({
 			"position": Vector2(_rng.randf_range(0.0, _viewport_size.x), _rng.randf_range(0.0, _viewport_size.y)),

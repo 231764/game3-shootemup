@@ -32,6 +32,7 @@ size = Vector2(126, 125)
 
 [node name="Enemy2" type="Area2D" unique_id=1644183651]
 script = ExtResource("1_3neu4")
+max_health = 5
 bullet_scene = ExtResource("2_23kvp")
 explosion_scene = ExtResource("3_4e2ig")
 

@@ -31,6 +31,8 @@ size = Vector2(84, 76)
 
 [node name="Enemy1" type="Area2D" unique_id=1705350879]
 script = ExtResource("1_ppmo8")
+max_health = 4
+ram_damage = 5
 explosion_scene = ExtResource("2_n665k")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1759095109]

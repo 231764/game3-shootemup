@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dybmdfq0y8ywj" path="res://assets/ship.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bmffyw6ha37qv" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://cr3kpr6ev3age" path="res://scenes/explosion.tscn" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://dj8dn1a3w7e06" path="res://assets/explosion.png" id="2_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
@@ -117,6 +118,8 @@ size = Vector2(16, 22)
 [node name="Player" type="CharacterBody2D" unique_id=1444988763]
 scale = Vector2(5, 5)
 script = ExtResource("1_g2els")
+max_health = 10
+explosion_scene = ExtResource("2_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1831614798]
 texture_filter = 1

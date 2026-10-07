@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b1mqrossn6d0l" path="res://scenes/player.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://cq4xjo6rjxlcx" path="res://scripts/enemy_spawner.gd" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://4g1bl78vwev1" path="res://scenes/enemy1.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://jo6ux54gn7ap" path="res://scenes/enemy2.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=287283779]
 
@@ -11,3 +12,4 @@
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=646661636]
 script = ExtResource("2_sugp2")
 enemy_scene = ExtResource("3_sugp2")
+enemy2_scene = ExtResource("4_jyhfs")

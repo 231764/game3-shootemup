@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://4g1bl78vwev1"]
 
 [ext_resource type="Script" uid="uid://chduli4kohxk8" path="res://scripts/enemy1.gd" id="1_ppmo8"]
+[ext_resource type="Texture2D" uid="uid://bfa3bcy3fe48h" path="res://icon.svg" id="2_nb0t0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppmo8"]
-size = Vector2(47, 59.75)
+size = Vector2(124, 124)
 
 [node name="Enemy1" type="Area2D" unique_id=1705350879]
 script = ExtResource("1_ppmo8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1412703176]
+texture = ExtResource("2_nb0t0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2119175015]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_ppmo8")
 debug_color = Color(1, 0.11764706, 0.1882353, 0.41960785)

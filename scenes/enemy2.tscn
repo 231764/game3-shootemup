@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://jo6ux54gn7ap"]
+
+[ext_resource type="Script" uid="uid://c5ihde8xfyoax" path="res://scripts/enemy2.gd" id="1_3neu4"]
+[ext_resource type="Texture2D" uid="uid://bfa3bcy3fe48h" path="res://icon.svg" id="1_wc7mj"]
+[ext_resource type="PackedScene" uid="uid://ch8ry6e03rn8x" path="res://scenes/enemybullet.tscn" id="2_23kvp"]
+[ext_resource type="PackedScene" uid="uid://cr3kpr6ev3age" path="res://scenes/explosion.tscn" id="3_4e2ig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxs0b"]
+size = Vector2(126, 125)
+
+[node name="Enemy2" type="Area2D" unique_id=1644183651]
+script = ExtResource("1_3neu4")
+bullet_scene = ExtResource("2_23kvp")
+explosion_scene = ExtResource("3_4e2ig")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=13535766]
+texture = ExtResource("1_wc7mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=220441067]
+shape = SubResource("RectangleShape2D_dxs0b")
+debug_color = Color(0.7811832, 0.43679494, 3.85046e-07, 0.41960785)

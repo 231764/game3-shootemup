@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ch8ry6e03rn8x"]
+
+[ext_resource type="Script" uid="uid://jwur5ijc3xve" path="res://scripts/enemybullet.gd" id="1_gb0c3"]
+[ext_resource type="Texture2D" uid="uid://bkkkseou7g3sy" path="res://assets/laser-bolts.png" id="2_6u5qk"]
+[ext_resource type="PackedScene" uid="uid://cr3kpr6ev3age" path="res://scenes/explosion.tscn" id="2_wv2c8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxs0b"]
+
+[node name="Enemybullet" type="Area2D" unique_id=1985048101]
+collision_layer = 9
+script = ExtResource("1_gb0c3")
+explosion_scene = ExtResource("2_wv2c8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=205249778]
+texture = ExtResource("2_6u5qk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=537219536]
+shape = SubResource("RectangleShape2D_dxs0b")

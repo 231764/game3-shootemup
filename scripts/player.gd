@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	var screen_size = get_viewport_rect().size
-	var half_size = 16
+	var half_size = 32
 	global_position.x = clamp(global_position.x, half_size, screen_size.x - half_size)
 	global_position.y = clamp(global_position.y, 250, screen_size.y - half_size) # leave space for enemies to appear
 

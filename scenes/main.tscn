@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cq4xjo6rjxlcx" path="res://scripts/enemy_spawner.gd" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://4g1bl78vwev1" path="res://scenes/enemy1.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://jo6ux54gn7ap" path="res://scenes/enemy2.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://b31hi52mjv2tv" path="res://scenes/health_bar.gd" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=287283779]
 
@@ -13,3 +14,12 @@
 script = ExtResource("2_sugp2")
 enemy_scene = ExtResource("3_sugp2")
 enemy2_scene = ExtResource("4_jyhfs")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1670466527]
+z_index = 1
+offset_right = 253.0
+offset_bottom = 32.0
+max_value = 5.0
+step = 1.0
+script = ExtResource("5_tbgi4")
+player_path = NodePath("../Player")

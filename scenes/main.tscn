@@ -4,9 +4,15 @@
 [ext_resource type="Script" uid="uid://cq4xjo6rjxlcx" path="res://scripts/enemy_spawner.gd" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://4g1bl78vwev1" path="res://scenes/enemy1.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://jo6ux54gn7ap" path="res://scenes/enemy2.tscn" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://b31hi52mjv2tv" path="res://scenes/health_bar.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://b31hi52mjv2tv" path="res://scripts/health_bar.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://dtc2aqjuevxy8" path="res://scripts/space.gd" id="6_ko5i7"]
+[ext_resource type="Script" uid="uid://cwg8mtwyre0nx" path="res://scripts/game_over.gd" id="7_o95le"]
 
 [node name="Main" type="Node2D" unique_id=287283779]
+
+[node name="Space" type="Node2D" parent="." unique_id=1647755770]
+z_index = -10
+script = ExtResource("6_ko5i7")
 
 [node name="Player" parent="." unique_id=1444988763 instance=ExtResource("1_0wfyh")]
 
@@ -15,11 +21,69 @@ script = ExtResource("2_sugp2")
 enemy_scene = ExtResource("3_sugp2")
 enemy2_scene = ExtResource("4_jyhfs")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1670466527]
-z_index = 1
-offset_right = 253.0
-offset_bottom = 32.0
-max_value = 5.0
-step = 1.0
+[node name="HUD" type="CanvasLayer" parent="." unique_id=490455498]
+
+[node name="HealthHUD" type="Control" parent="HUD" unique_id=1189336619]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 336.0
+offset_bottom = 34.0
+mouse_filter = 2
 script = ExtResource("5_tbgi4")
+player_path = NodePath("../../Player")
+
+[node name="HealthLabel" type="Label" parent="HUD/HealthHUD" unique_id=1939860250]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.91, 0.97, 0.92, 1)
+theme_override_colors/font_shadow_color = Color(0.01, 0.02, 0.05, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 14
+text = "HP 10/10"
+vertical_alignment = 1
+
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=1130018752]
+layer = 10
+script = ExtResource("7_o95le")
 player_path = NodePath("../Player")
+health_hud_path = NodePath("../HUD/HealthHUD")
+
+[node name="Overlay" type="Control" parent="GameOver" unique_id=1838141244]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dim" type="ColorRect" parent="GameOver/Overlay" unique_id=172379157]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.01, 0.02, 0.05, 0.72)
+
+[node name="Center" type="CenterContainer" parent="GameOver/Overlay" unique_id=239869769]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameOverLabel" type="Label" parent="GameOver/Overlay/Center" unique_id=1903105593]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 38
+text = "GAME OVER!"

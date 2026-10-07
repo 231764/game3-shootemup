@@ -1,9 +1,31 @@
 [gd_scene format=3 uid="uid://jo6ux54gn7ap"]
 
 [ext_resource type="Script" uid="uid://c5ihde8xfyoax" path="res://scripts/enemy2.gd" id="1_3neu4"]
-[ext_resource type="Texture2D" uid="uid://bfa3bcy3fe48h" path="res://icon.svg" id="1_wc7mj"]
 [ext_resource type="PackedScene" uid="uid://ch8ry6e03rn8x" path="res://scenes/enemybullet.tscn" id="2_23kvp"]
 [ext_resource type="PackedScene" uid="uid://cr3kpr6ev3age" path="res://scenes/explosion.tscn" id="3_4e2ig"]
+[ext_resource type="Texture2D" uid="uid://38t7iiw4noab" path="res://assets/enemy-big.png" id="4_23kvp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e2ig"]
+atlas = ExtResource("4_23kvp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsk8u"]
+atlas = ExtResource("4_23kvp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khk4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e2ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsk8u")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxs0b"]
 size = Vector2(126, 125)
@@ -13,8 +35,11 @@ script = ExtResource("1_3neu4")
 bullet_scene = ExtResource("2_23kvp")
 explosion_scene = ExtResource("3_4e2ig")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=13535766]
-texture = ExtResource("1_wc7mj")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1788976584]
+texture_filter = 1
+position = Vector2(0, -8)
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_khk4l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=220441067]
 shape = SubResource("RectangleShape2D_dxs0b")

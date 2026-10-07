@@ -10,6 +10,7 @@ extends Area2D
 @export var ram_damage := 1
 @export var bullet_scene: PackedScene
 @export var explosion_scene: PackedScene
+@onready var animation = $Sprite2D
 
 var health: int
 var dead := false
@@ -19,6 +20,7 @@ var _center_x := 0.0
 var _shoot_timer: Timer
 
 func _ready() -> void:
+	animation.play("default")
 	health = max_health
 	add_to_group("enemy")
 	_center_x = clamp(position.x, sway_amplitude, get_viewport_rect().size.x - sway_amplitude)

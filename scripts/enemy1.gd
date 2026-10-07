@@ -5,6 +5,7 @@ extends Area2D
 @export var contact_damage := 1   # damage dealt to the player on collision
 @export var ram_damage := 1       # damage the enemy takes when it hits the player
 @export var explosion_scene: PackedScene
+@onready var animation = $Sprite2D
 
 var health: int
 var dead := false
@@ -12,6 +13,7 @@ var dead := false
 func _ready() -> void:
 	health = max_health
 	add_to_group("enemy")
+	animation.play("default")
 	area_entered.connect(_on_area_entered)
 	body_entered.connect(_on_body_entered)
 
